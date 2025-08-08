@@ -1,7 +1,19 @@
 # 2-Sum Interview Problem
 
 def two_sum_problem(arr, target):
-    pass
+    sol = None
+    n = len(arr)
+
+    for idx1 in range(n):
+        for idx2 in range(n):
+            if idx1 != idx2:
+                if arr[idx1] + arr[idx2] == target:
+                    sol = (idx1, idx2)
+                    
+                    return sol
+                
+
+    return sol
 
 
 assert two_sum_problem([1, 2, 3], 4) == (0, 2)
