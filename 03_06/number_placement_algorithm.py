@@ -11,8 +11,8 @@ puzzle_symbols = []
 for i in range(PUZZLE_SIZE - 1):
     puzzle_symbols.append(">" if random.random() < .5 else "<")
 
-# print(puzzle_nums)
-# print(puzzle_symbols)
+print(puzzle_nums)
+print(puzzle_symbols)
 
 # Sort puzzle numbers first
 # Use largest remaining if greater than, smallest remaining if less than
@@ -28,7 +28,17 @@ solution_values = []
 # Your code goes here
 # Iterate through the inequalities and apply solution algorithm to populate solution_values
 # You may need to add the last value outside the loop
-pass
+for symbol in puzzle_symbols:
+    if symbol == '>':
+        solution_values.append(sorted_puzzle_nums[high])
+        high += 1
+    else:
+        solution_values.append(sorted_puzzle_nums[low])
+        low -=1
+
+#print('high: ' + str(high))
+#print('low: ' + str(low))
+solution_values.append(sorted_puzzle_nums[low])
 
 # Convert solution_values to list of strings
 solution_values = list(map(str, solution_values))
